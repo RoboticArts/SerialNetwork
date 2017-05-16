@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>479</width>
+    <height>293</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>479</width>
+    <height>293</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>479</width>
+    <height>293</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Configuración IP</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>435</width>
+     <height>250</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBoxServer">
+        <property name="text">
+         <string>Servidor</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelActivateDesactivate">
+        <property name="text">
+         <string>Desactivado</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBoxClient">
+        <property name="text">
+         <string>Cliente</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelConnectDisconnect">
+        <property name="text">
+         <string>Desconectado</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <layout class="QGridLayout" name="_2">
+      <property name="horizontalSpacing">
+       <number>0</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>6</number>
+      </property>
+      <item row="2" column="0" colspan="2">
+       <widget class="QPlainTextEdit" name="plainTextEditClient"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelClientLocalPort">
+        <property name="text">
+         <string>Local Port =  No detectado</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelClientRemoteAddress">
+          <property name="text">
+           <string>Remote Address</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEditClientRemotePort">
+          <property name="text">
+           <string>1999</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEditClientRemoteAddress">
+          <property name="text">
+           <string>192.168.1.11</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelClientRemotePort">
+          <property name="text">
+           <string>Remote Port</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="4" column="0" colspan="2">
+       <widget class="QPlainTextEdit" name="plainTextEditServer">
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEditServerPort">
+        <property name="text">
+         <string>1999</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelServerPort">
+        <property name="text">
+         <string>Port</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>19</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QLabel" name="labelClientLocalAddress">
+        <property name="text">
+         <string>Local Address = No detectado</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
