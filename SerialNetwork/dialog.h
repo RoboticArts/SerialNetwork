@@ -30,6 +30,8 @@ public:
     bool getStateServer();
     bool getStateClient();
 
+    void ShowMessageBox();
+
 
     ~Dialog();
 

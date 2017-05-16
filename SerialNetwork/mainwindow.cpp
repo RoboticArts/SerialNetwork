@@ -64,20 +64,31 @@ MainWindow::~MainWindow()
 
 void MainWindow::ServerActivateDeactivate(void)
 {
-    if(server->isListening())
+
+    //Impide el modo servidor si no hay COM detectado
+    if(!port.isEmpty())  //Si el puerto no está vacio, hay COM detectado (si está vacio devuelve un 1)
     {
-        d -> EditPlainTextServer(QString("User: Deactivate") + '\n');
-        server->close();
+        if(server->isListening())
+        {
+            d -> EditPlainTextServer(QString("User: Deactivate") + '\n');
+            server->close();
+        }
+        else
+        {
+            d -> EditPlainTextServer(QString("User: Activate "));
+
+            if(server->listen(QHostAddress::Any, d->getLineEditServerPort().toInt()))
+                d -> EditPlainTextServer(QString("OK\n"));
+            else
+                d -> EditPlainTextServer(QString("NO OK\n"));
+        }
     }
+
     else
     {
-        d -> EditPlainTextServer(QString("User: Activate "));
-
-        if(server->listen(QHostAddress::Any, d->getLineEditServerPort().toInt()))
-            d -> EditPlainTextServer(QString("OK\n"));
-        else
-            d -> EditPlainTextServer(QString("NO OK\n"));
+    d->ShowMessageBox(); //Muestra la caja de informacion en la vetana de configuracion
     }
+
 }
 
 void MainWindow::ServerNewConnection(void)
@@ -373,6 +384,7 @@ void MainWindow::on_EnableSliderButton_clicked() // Is a toggle button
 
     if(toggle == 1){
 
+        ui-> pushButtonSetting -> setEnabled(0); //Se inhabilita el contro remoto
         ui->SliderX->setEnabled(true);
         ui->SliderY->setEnabled(true);
         ui->LabelInfo->show();
@@ -380,7 +392,7 @@ void MainWindow::on_EnableSliderButton_clicked() // Is a toggle button
         toggle = 0;
     }
     else{
-
+        ui-> pushButtonSetting -> setEnabled(1); //Se habilita el contro remoto
         ui->SliderX->setEnabled(false);
         ui->SliderY->setEnabled(false);
         ui->LabelInfo->hide();
@@ -388,6 +400,11 @@ void MainWindow::on_EnableSliderButton_clicked() // Is a toggle button
         toggle = 1;
     }
 
+}
+
+void MainWindow::EnableDisableSliderButton(bool state)
+{
+    ui -> EnableSliderButton -> setEnabled(state);
 }
 
 
@@ -470,3 +487,6 @@ void MainWindow::setKeyboardEnable(bool state)
 {
     KeyboardState = state;
 }
+
+
+

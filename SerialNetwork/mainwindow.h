@@ -14,6 +14,10 @@
 #include <QDialog>
 #include <QString>
 
+//Terminar de implementar los botones de armado
+//Dejar bonita la interfaz
+//Habilitar e inhabilitar los botones de armado
+
 namespace Ui {
 class MainWindow;
 }
@@ -97,6 +101,7 @@ public slots:
 
     /*Puerto serie*/
     void SettingSerialPort();
+    void EnableDisableSliderButton(bool state); //Activa o desactiva el boton MANUAL
 
 
 private slots:
@@ -113,6 +118,8 @@ private slots:
     void on_SliderX_valueChanged(int value);
     void on_SliderY_valueChanged(int value);
     void on_EnableSliderButton_clicked();
+
+
 
 };
 

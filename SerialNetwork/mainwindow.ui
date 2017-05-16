@@ -39,14 +39,14 @@
    <widget class="QPushButton" name="pushButtonSetting">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>100</x>
       <y>60</y>
-      <width>75</width>
-      <height>23</height>
+      <width>151</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Configuración</string>
+     <string>Remoto:Configuración</string>
     </property>
    </widget>
    <widget class="QSlider" name="SliderY">
@@ -148,7 +148,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Activar Sliders</string>
+     <string>Manual: Activar Sliders</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ButtonSerialPort">
