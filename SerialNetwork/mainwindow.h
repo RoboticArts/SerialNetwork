@@ -65,7 +65,7 @@ private:
 
     int transactionCount;
 
-    MasterThread thread;
+    MasterThread *thread;
 
     bool KeyboardState = 0;
 

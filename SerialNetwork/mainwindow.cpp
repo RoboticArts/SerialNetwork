@@ -21,12 +21,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    thread = new MasterThread;
+
     /*Puerto serie */
     ui->LabelInfo->hide(); // Puerto serie
     connect(ui->ButtonSerialPort , SIGNAL(clicked(bool)),this, SLOT(SettingSerialPort()));
-    connect(&thread, &MasterThread::response, this, showResponse);
-    connect(&thread, &MasterThread::error, this, processError);
-    connect(&thread, &MasterThread::timeout, this,processTimeout);
+    connect(thread, SIGNAL(response(QString)), this, SLOT(showResponse(QString)));
+    connect(thread, SIGNAL(error(QString)), this, SLOT(processError(QString)));
+    connect(thread, SIGNAL(timeout(QString)), this, SLOT(processTimeout(QString)));
 
     /*Network*/
     ui -> pushButtonShoot -> setStyleSheet("background-color: rgba(255,0,0,0.6);  border-style: outset;");
@@ -345,7 +347,7 @@ void MainWindow::transaction()
    // setControlsEnabled(false);
     ui->statusBar->showMessage(tr("Status: Running, connected to port %1.")
                          .arg(port));
-    thread.transaction(port,
+    thread -> transaction(port,
                        timeout,
                        request);
 }
